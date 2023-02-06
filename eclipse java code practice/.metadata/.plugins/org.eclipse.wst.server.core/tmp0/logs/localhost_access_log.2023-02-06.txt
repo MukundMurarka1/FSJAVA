@@ -1,0 +1,9 @@
+127.0.0.1 - - [06/Feb/2023:19:05:39 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:05:41 +0530] "GET /ServletContextProject/testcontext HTTP/1.1" 200 412
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:05:41 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [06/Feb/2023:19:07:12 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:07:13 +0530] "GET /ServletContextProject/testcontext HTTP/1.1" 200 412
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:07:14 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [06/Feb/2023:19:23:04 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:23:04 +0530] "GET /ServletContextProject/testcontext HTTP/1.1" 200 412
+0:0:0:0:0:0:0:1 - - [06/Feb/2023:19:23:05 +0530] "GET /favicon.ico HTTP/1.1" 404 762

@@ -29,6 +29,8 @@ public class ServletAnnotation extends HttpServlet {
 	private Connection connection = null;
 	private PreparedStatement pstmt = null;
 	
+	
+	// this static method runs only once this section is used for loading the mysql database 
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

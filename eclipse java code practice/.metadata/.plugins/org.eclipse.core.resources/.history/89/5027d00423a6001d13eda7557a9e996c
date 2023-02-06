@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ServletContextProject</display-name>
+  
+  <context-param>
+  <param-name>URL</param-name>
+  <param-value>jdbc:mysql:///student</param-value>
+  </context-param>
+   <context-param>
+  <param-name>user name</param-name>
+  <param-value>root</param-value>
+  </context-param>
+   <context-param>
+  <param-name>password</param-name>
+  <param-value>Mukund@1996</param-value>
+  </context-param>
+  
+  
+  <servlet>
+    <servlet-name>ServletcontextApp</servlet-name>
+    <servlet-class>ServletcontextApp</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletcontextApp</servlet-name>
+    <url-pattern>/testServlet</url-pattern>
+  </servlet-mapping>
+  
+  </web-app>
