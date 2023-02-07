@@ -24,6 +24,16 @@ public class ServletContextattribute extends HttpServlet {
 			
 			PrintWriter write = response.getWriter();
 			
+			
+			write.println("<h1> Request Url :: "+request.getRequestURI()+"</h1>");
+			write.println("<h1> Context Path  :: "+request.getContextPath()+"</h1>");
+			write.println("<h1> Servlet path :: "+request.getServletPath()+"</h1>");
+			write.println("<h1> Path information :: "+request.getPathInfo()+"</h1>");
+			write.println("<h1> Query string  :: "+request.getQueryString()+"</h1>");
+			
+			
+			
+			
 			ServletContext contxt = getServletContext();
 			contxt.setAttribute("Name", "mukund");
 			contxt.setAttribute("Password", "mukund123");
