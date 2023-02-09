@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>FilterApplication</display-name>
+ <filter>
+    <filter-name>DemoFilter</filter-name>
+    <filter-class>in.ineuron.filter.DemoFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>DemoFilter</filter-name>
+    <url-pattern>/test</url-pattern>
+  </filter-mapping>
+  
+  
+  <servlet>
+    <servlet-name>TargetServlet</servlet-name>
+    <servlet-class>in.ineuron.controller.TargetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TargetServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+</web-app>
