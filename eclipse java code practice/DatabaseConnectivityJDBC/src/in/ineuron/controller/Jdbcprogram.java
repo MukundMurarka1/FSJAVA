@@ -82,7 +82,10 @@ import java.sql.Statement;
 public class Jdbcprogram {
 
 	public static void main(String[] args) {
+		System.out.println("======================================================");
 		System.out.println("......WELCOME TO THIS JDBC CONNECTIVITY PROGRAM......");
+		System.out.println("======================================================");
+		System.out.println();
 		 Connection connection = null ;
 		
 		
