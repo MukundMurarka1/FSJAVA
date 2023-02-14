@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>Filterchaining</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
+  
+  <filter>
+  <filter-name>LogFilter</filter-name>
+  <filter-class>in.ineuron.Filter.LogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>LogFilter</filter-name>
+  <url-pattern>/test</url-pattern>
+  </filter-mapping>
+  
+  
+  <filter>
+  <filter-name>DemoFilter</filter-name>
+  <filter-class>in.ineuron.Filter.DemoFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>DemoFilter</filter-name>
+  <url-pattern>/test</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  <servlet-name>TestServlet</servlet-name>
+  <servlet-class>in.ineuron.controller.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>TestServlet</servlet-name>
+  <url-pattern>/test</url-pattern>
+  </servlet-mapping>
 </web-app>
