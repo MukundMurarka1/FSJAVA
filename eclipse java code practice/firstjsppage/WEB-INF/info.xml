@@ -1,0 +1,6 @@
+<web-app>
+	<context-param>
+		<param-name>username</param-name>
+		<param-value>iNeuron</param-value>
+	</context-param>
+</web-app>
