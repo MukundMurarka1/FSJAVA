@@ -29,7 +29,7 @@ public class TargetServlet extends HttpServlet {
 		String smbn= request.getParameter("mobileno");
 		
 		
-		 String insertquery = String.format("insert into studentdetails(`first_name`,`last_name`,`roll_no`,`address`,`mobile_no`) values('%s','%s',%d,'%s',%d)",fname,lname,sroll,sadd,smbn);
+		 String insertquery ="insert into studentdetails(`first_name`,`last_name`,`roll_no`,`address`,`mobile_no`) values(?,?,?,?,?)";
 		
 		PrintWriter write = response.getWriter();
 		
