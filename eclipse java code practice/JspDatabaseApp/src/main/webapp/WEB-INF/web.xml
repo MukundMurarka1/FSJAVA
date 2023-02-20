@@ -3,7 +3,7 @@
  <display-name>HtmlJspDBApp</display-name>
   <servlet>
   	<servlet-name>DB</servlet-name>
-  	<jsp-file>/pages/employee_process.jsp</jsp-file>
+  	<jsp-file>/WEB-INF/pages/employee_process.jsp</jsp-file>
   	<init-param>
   		<param-name>jdbcUrl</param-name>
   		<param-value>jdbc:mysql:///student</param-value>
@@ -14,7 +14,7 @@
   	</init-param>
   	<init-param>
   		<param-name>password</param-name>
-  		<param-value>root123</param-value>
+  		<param-value>Mukund@1996</param-value>
   	</init-param>
   </servlet>
   
