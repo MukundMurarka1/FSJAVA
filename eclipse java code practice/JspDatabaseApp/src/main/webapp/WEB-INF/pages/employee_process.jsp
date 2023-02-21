@@ -5,6 +5,7 @@
 	PreparedStatement pstmt1=null;
 	PreparedStatement pstmt2=null;
 	PreparedStatement  pstmt3 = null;
+	PreparedStatement pstmt4 = null;
 	Statement  stmt = null;
 	
 	public void jspInit(){
@@ -17,6 +18,7 @@
 		String insertquery = "insert into studentdetails(first_name, last_name, roll_no, address, mobile_no) values(?,?,?,?,?)";
 		String selectquery = "select * from studentdetails";
 		String updateQuery = "UPDATE studentdetails set address = ? where roll_no= ? ";
+		String deleteQuery =  "DELETE from studentdetails where roll_no= ? ";
 		
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,6 +28,7 @@
 			pstmt1 = connection.prepareStatement(insertquery);
 			pstmt2 = connection.prepareStatement(selectquery);
 			pstmt3 = connection.prepareStatement(updateQuery);
+			pstmt4 = connection.prepareStatement(deleteQuery);
 			
 		}
 		catch(ClassNotFoundException ce){
@@ -38,7 +41,8 @@
 %>
 
 <%
-
+	//insert the record 
+	
 	String action = request.getParameter("s1");
 	if(action.equalsIgnoreCase("register")){
 		String sfname = request.getParameter("sfname");
@@ -59,7 +63,7 @@
 		{
 %>
 
-	<h1 style='color: green; text-align: center;'>Employee registered</h1>
+	<h1 style='color: green; text-align: center;'>Student registered Successfully</h1>
 
 <%
 		}
@@ -75,17 +79,20 @@
 
 
 <%} 
+	//Update the record 
 	else if(action.equalsIgnoreCase("Update")){
 		String srollno = request.getParameter("srollno");
 		String saddr = request.getParameter("saddr");
 		
+		//through Statement object 
 		//String updateQuery = "UPDATE studentdetails set address = '"+saddr+"' where roll_no= '"+srollno+"'";
-		
 		//stmt = connection.createStatement();
 		//System.out.println(updateQuery);
 		
-		pstmt3.setString(1, srollno);
-		pstmt3.setString(2, saddr);
+	
+		pstmt3.setString(1, saddr);
+		pstmt3.setString(2, srollno);
+
 		
 		int rowcount1 = pstmt3.executeUpdate();
 		
@@ -99,6 +106,39 @@
 <%		}
 		
 	}
+	// Delete the record 
+	else if(action.equalsIgnoreCase("Delete")){
+		String sdelroll = request.getParameter("srollno");
+		if(sdelroll.isEmpty()){
+%>
+	<h1 style='color: green; text-align: center;'>enter valid rollno </h1> 
+	
+<% 
+		}
+		else{		
+		
+		pstmt4.setString(1, sdelroll);
+		
+		int delrow = pstmt4.executeUpdate();
+		
+		if(delrow == 1){
+%>
+	<h1 style='color: green; text-align: center;'>Student detail deleted Successfully </h1> 
+
+<%  
+		}
+		else{
+%>
+	<h1 style='color: green; text-align: center;'>Student detail not deleted  </h1>
+	
+<%
+		}
+	}
+	}
+	
+	
+	//Select the record 
+	
 	else
 	{
 		ResultSet result = pstmt2.executeQuery();	
@@ -111,9 +151,6 @@
     <td>Student Address</td>
     <td>Student Mobile no</td>
   </tr>
-  
-
-
 <%
 	while(result.next()){
 %>		
@@ -161,6 +198,14 @@
 	 try{
 		 if(pstmt3 != null){
 			 pstmt3.close();
+		 }
+		 }catch(SQLException se){
+			 se.printStackTrace();
+			 
+		 }
+	 try{
+		 if(pstmt4 != null){
+			 pstmt4.close();
 		 }
 		 }catch(SQLException se){
 			 se.printStackTrace();

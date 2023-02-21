@@ -4,8 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration page</title>
 </head>
-<body>
-	<h1 style='color:red; text-align: center;'>HTML to JSP to DB communication</h1>
+
+<body bgcolor="salmon">
+<h1 style='color:#fff; text-align:center'>Enter the new address which you want to update</h1>
+<h1 style='color:#fff; text-align: center;'>HTML to JSP to DB communication</h1>
+
+	
 	<form action = './employeeurl' method='post'>
 		<table border='1' align='center' bgcolor='cyan'>
 			<tr>
@@ -40,13 +44,14 @@
 			
 			</tr>
 			<tr>
-				<td></td>
-				<td>
-				    <input type='submit' value='Update' name = 's2'/>
-					<input type='submit' value='register' name = 's1'/>
+				
+				<td  style='text-align:center'>
+				    <a href='./update.html?s1=link' style='margin-right:10px'>Update  </a>
+					<input type='submit' value='register' style='margin-right:10px' name = 's1'/>
+					 <a href='./Delete.html?s1=link' style='margin-right:10px'>Delete  </a>
 					
-					<a href='./update.html?s1=link'>GET ALL EMPLOYEE </a>
-					<a href='./employeeurl?s1=link'>GET ALL EMPLOYEE </a>
+					
+					<a href='./employeeurl?s1=link' style='margin-right:10px'>GET ALL EMPLOYEE </a>
 					
 				
 				</td>
