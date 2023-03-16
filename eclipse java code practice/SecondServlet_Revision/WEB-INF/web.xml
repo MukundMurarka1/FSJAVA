@@ -1,7 +1,8 @@
 <web-app>
 	<servlet>
 		<servlet-name>DemoServlet</servlet-name>
-		<servlet-class>SecondServlet</servlet-class>
+		<servlet-class>ThirdServlet</servlet-class>
+		<load-on-starup>10</load-on-starup>
 	
 	</servlet>
 	<servlet-mapping>
