@@ -1,8 +1,9 @@
 import javax.servlet.*;
-import javax.sql.rowset.serial.SerialException;
-
 import java.io.*;
+import javax.servlet.annotation.*;
 
+
+@WebServlet(urlPatterns="/test", loadOnStartup=10)
 public class ForthServlet implements Servlet{
 
     static
@@ -25,16 +26,28 @@ public class ForthServlet implements Servlet{
 
     }
 
-    public void service(ServletRequest request, servletResponse response) throws IOException, SerialException{
+    public void service(ServletRequest request, ServletResponse response) throws IOException, ServletException
+    {
+        response.setContentType("text/html");
 
+        PrintWriter write = response.getWriter();
+
+        write.println("<html><head><title> OUTPUT</title><head>");
+        write.println("<body>");
+        write.println("<h1 style='color:red'><marquee>Working of thi servlet with Annotation...</marquee></h1>");
+        write.println("</body>");
+        write.println("</html>>");
+
+        write.close();
     }
 
-    public string getServletInfo(){
+    public String getServletInfo(){
         return null;
 
     }
 
     public void destroy(){
+        System.out.println("Servlet deinstatntiation is succcessfull ........");
 
     }
 
