@@ -10,11 +10,18 @@ public class SixthServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("The Request method type is :: == GET");
+        String username = request.getParameter("username");
+        System.out.println("the user nameof the user is :  "+username);
+
     }
     
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("The Request method type is :: == POST");
+
+        String username = request.getParameter("username");
+        System.out.println("the user nameof the user is :  "+username);
+
     }
 }
