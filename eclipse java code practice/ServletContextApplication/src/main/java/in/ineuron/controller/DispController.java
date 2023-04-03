@@ -10,52 +10,49 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-public class TestServletContext extends HttpServlet {
+public class DispController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
 	static {
-		System.out.println("Test Servlet. class file is loading .......");
+		System.out.println("DispController Servlet. class file is loading .......");
 	}
 	
-	public TestServletContext(){
-		System.out.println("Test Servlet object is instantiated ........");
+	public DispController(){
+		System.out.println("DispController object is instantiated ........");
 	}
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		PrintWriter write = response.getWriter();
-		
-		write.println("<html><head><title>Context param</title></head>");
+		write.println("<html><head><title>Disp Controller </title></head>");
 		write.println("<body>");
 		write.println("<center>");
-		write.println("<h1 style='color:green; text-align:center'>welcome to this database information page </h1>");
-		write.println("<table>");
-		write.println("<th> Context Name </th><th> Context Value </th>");
+		
+		write.println("<h1 style='color:red; text-align:center'>this is disp controller page</h1>");
+		write.println("<table Border='1'>");
+		
+		write.println("<th>Context Name</th> <th>context value </th>");
+		
 		
 		ServletContext context = getServletContext();
 		Enumeration<String> parameternames = context.getInitParameterNames();
 		
-		while(parameternames.hasMoreElements()) {
-			String parametername = (String) parameternames.nextElement();
-			String parametervalue = context.getInitParameter(parametername);
+		while( parameternames.hasMoreElements()) {
+			String parameter = (String) parameternames.nextElement();
+			String value= context.getInitParameter(parameter);
 			
 			write.println("<tr>");
-			write.println("<td>" +parametername+ "</td><td>" +parametervalue+ "</td>");
-			
+			write.println("<td>" +parameter+ "</td><td>" +value+"</td>");
 			write.println("</tr>");
-		}
-		
+		} 
 		write.println("</table>");
 		write.println("</center>");
 		write.println("</body>");
 		write.println("</html>");
-		
-		
-		
-		
+
 		write.close();
+
 	}
 
 }
