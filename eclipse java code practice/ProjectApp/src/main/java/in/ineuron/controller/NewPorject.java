@@ -16,9 +16,13 @@ public class NewPorject extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		System.out.println("The implementation class name of servlet class is ");
 		ServletConfig config = getServletConfig();
 		ServletContext context = getServletContext();
+		System.out.println("The config object class name :: " +config.getClass());
+		System.out.println("The context object class name is :: "+context.getClass());
+		System.out.println("The request object class name is :: "+request.getClass());
+		System.out.println("The response object class name is :: "+response.getClass());
 	}
 
 }
