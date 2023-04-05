@@ -1,6 +1,7 @@
 package in.ineuron.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -17,6 +18,9 @@ public class NewPorject extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("The implementation class name of servlet class is ");
+		
+		PrintWriter write = response.getWriter();
+		write.println("<html><head><title> welcome to my project</title></head>");
 		ServletConfig config = getServletConfig();
 		ServletContext context = getServletContext();
 		System.out.println("The config object class name :: " +config.getClass());
