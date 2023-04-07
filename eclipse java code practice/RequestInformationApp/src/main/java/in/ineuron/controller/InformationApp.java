@@ -1,25 +1,27 @@
 package in.ineuron.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class InformationApp
- */
-@WebServlet("/reqinfo")
+@WebServlet("/reqinfo/ineuron/*")
 public class InformationApp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+	PrintWriter write =  response.getWriter();
+	write.println("<h1> Request url :: "+request.getRequestURI()+"</h1>");
+	write.println("<h1> Context path :: "+request.getContextPath()+"</h1>");
+	write.println("<h1>Servlet Path :: "+request.getServletPath()+"</h1>");
+	write.println("<h1> Path Information :: "+request.getPathInfo()+"</h1>");
+	write.println("<h1> Request Ip Address :: "+request.getRemoteAddr()+"</h1>");
+	
+	write.println("<h1> Query String :: "+request.getQueryString()+"</h1>");
 	}
 
 }
