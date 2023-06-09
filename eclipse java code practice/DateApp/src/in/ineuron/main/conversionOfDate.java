@@ -25,6 +25,14 @@ public class conversionOfDate {
 		System.out.println("Date in string format ::" +sdate);
 		System.out.println("Date in util format ::"+udate);
 		System.out.println("Date in sql format ::"+sqldate);
+		
+		
+		System.out.println("enter the DOM in yyyy-MM-dd format :: ");
+		String standardinput = scan.next();
+		java.sql.Date standardsqldate = java.sql.Date.valueOf(standardinput);
+		
+		System.out.println("print the date in the standardiput format :: " +standardinput);
+		System.out.println("Print the date in the standard sql date format :: "+standardsqldate);
 	
 		
 	}
