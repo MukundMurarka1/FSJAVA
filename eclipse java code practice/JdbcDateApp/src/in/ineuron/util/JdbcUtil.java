@@ -32,7 +32,7 @@ public class JdbcUtil {
 	
 	Connection connection = DriverManager.getConnection(properties.getProperty("url"),properties.getProperty("user"),properties.getProperty("password"));
 	System.out.println("Connection Established successfully .....");
-	return null;
+	return connection;
 	}
 	
 	public static void closeConnection(Connection connection, Statement stmt, ResultSet resultset) throws SQLException {
