@@ -66,7 +66,7 @@ public class DateInsert {
 				System.out.println("Enter the loction of image");
 				String imgloc = scan.next();
 				
-				FileInputStream fis = new FileInputStream(new File(imgloc));
+				FileInputStream fis = new FileInputStream(imgloc);
 				
 				pstmt.setString(1, sname);
 				pstmt.setBinaryStream(2, fis);
@@ -84,16 +84,14 @@ public class DateInsert {
 			
 		}catch(IOException ie ) {
 			ie.printStackTrace();
-		}finally {
+		}
+		finally {
 			try{
 				JdbcUtil.closeConnection(connection, pstmt, resultset);
 			}catch(SQLException se) {
 				se.printStackTrace();
 			}
 		}
-		
-		
-
 	}
 
 }
