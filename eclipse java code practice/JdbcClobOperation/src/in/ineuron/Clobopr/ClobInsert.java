@@ -35,8 +35,10 @@ public class ClobInsert {
 					System.out.println("Enter the name of student :: ");
 					name = scan.next();
 					
-					System.out.println("Eter the location pdf :: ");
+					System.out.println("Enter the location pdf :: ");
 					pdfLoc = scan.next();
+					
+					System.out.println(pdfLoc);
 					
 					pstmt.setString(1, name);
 					pstmt.setCharacterStream(2, new FileReader(new File(pdfLoc)));
