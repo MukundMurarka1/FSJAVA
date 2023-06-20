@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.*;
 
 import JdBCUtil.JDBCUtils;
 
@@ -38,7 +39,9 @@ public class ClobInsert {
 					System.out.println("Enter the location pdf :: ");
 					pdfLoc = scan.next();
 					
-					System.out.println(pdfLoc);
+//					String pdf = pdfLoc.replaceAll("\\s+", "");
+//					
+//					System.out.println(pdf);
 					
 					pstmt.setString(1, name);
 					pstmt.setCharacterStream(2, new FileReader(new File(pdfLoc)));

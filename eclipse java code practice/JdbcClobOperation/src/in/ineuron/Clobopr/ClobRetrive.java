@@ -52,7 +52,11 @@ public class ClobRetrive {
 		FileWriter fw = new FileWriter(file);
 		IOUtils.copy(reader, fw);
 		
+		fw.close();
 		System.out.println(did+" \t "+sname+ " \t "+file.getAbsolutePath());
+		}
+		else {
+			System.out.println("Record is not avilable for the given id :: ");
 		}
 	}
 	}catch(SQLException | IOException se) {
