@@ -1,13 +1,16 @@
 package in.inuron.service;
 
 import in.ineuron.dto.Student;
+import in.ineuron.servicefactory.StudentServiceFactory;
 
+//service layer logic 
 public class StudentServiceImpl implements IStudentService {
 
+	IStudentService stdservice ;
 	@Override
 	public String addStudent(String sname, Integer sage, String saddress) {
-		// TODO Auto-generated method stub
-		return null;
+		stdservice = StudentServiceFactory.getStudentService();
+		return stdservice.addStudent(sname, sage, saddress);
 	}
 
 	@Override
