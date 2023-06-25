@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import org.apache.commons.io.IOUtils;
+
 import in.ineuron.util.JdbcUtil;
 
 public class ImageRetriveApp {
@@ -42,11 +44,25 @@ public class ImageRetriveApp {
 					
 					File file = new File("copied.jpg");
 					FileOutputStream fos = new FileOutputStream(file);
-					int i = is.read();
-					while(i != -1) {
-						fos.write(i);
-						i = is.read();
-					}
+					
+					//Performance is low 
+//					int i = is.read();
+//					while(i != -1) {
+//						fos.write(i);
+//						i = is.read();
+//					}
+					
+					//Other approach 
+//					byte [] b = new byte[1024];
+//					while(is.read(b) > 0) {
+//						fos.write(b);
+//						
+//					}
+					
+					//we can done this copy and read read image thorugh apache common-io API
+					//Download the apache common IOUtils jars from Maven repository and build that path ::
+					IOUtils.copy(is, fos);
+					
 					fos.close();
 					System.out.println(sid+ "\t" +sname+ "\t" + file.getAbsolutePath());
 				}
