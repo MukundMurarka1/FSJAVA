@@ -59,7 +59,17 @@ public class CallableStatementApp {
 		} catch (SQLException | IOException e) {
 			
 			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				JdbcUtility.closeconnection(connection, cstmt, null);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 		
 		
 		
