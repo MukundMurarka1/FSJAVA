@@ -1,16 +1,19 @@
 package in.inuron.service;
 
+import in.ineuron.daofactory.StudentDaoFactory;
 import in.ineuron.dto.Student;
+import in.ineuron.persistence.IstudentDao;
 import in.ineuron.servicefactory.StudentServiceFactory;
 
 //service layer logic 
 public class StudentServiceImpl implements IStudentService {
 
 	IStudentService stdservice ;
+	IstudentDao stddao ;
 	@Override
 	public String addStudent(String sname, Integer sage, String saddress) {
-		stdservice = StudentServiceFactory.getStudentService();
-		return stdservice.addStudent(sname, sage, saddress);
+		stddao = StudentDaoFactory.getStudentDao();
+		return stddao.addStudent(sname, sage, saddress);
 	}
 
 	@Override
