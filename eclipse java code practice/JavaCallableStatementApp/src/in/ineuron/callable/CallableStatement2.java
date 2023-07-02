@@ -39,21 +39,24 @@ public class CallableStatement2 {
 			System.out.println("Enter the product name ");
 			prod2 = scan.next();
 		}
-		
+		 //setting the value 
 		if(cstmt != null) {
 			cstmt.setString(1, prod1);
 			cstmt.setString(2, prod2);
 			
 		}
 		
+		//execute the query 
 		if(cstmt != null) {
 			cstmt.execute();
 		}
 		
+		//get the resultset 
 		if(cstmt != null) {
 			resultset = cstmt.getResultSet();
 		}
 		
+		//process the Resultset 
 		if(resultset != null) {
 			System.out.println("pid\tpname\tprice\tquantity");
 			
@@ -64,6 +67,8 @@ public class CallableStatement2 {
 			
 		}
 		
+		
+		//process the nature of resultset and displayed the value 
 		if(flag == true) {
 			System.out.println("Record available and displayed ....");
 		}else {
