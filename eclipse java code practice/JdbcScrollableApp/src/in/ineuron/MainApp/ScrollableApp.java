@@ -38,6 +38,23 @@ public class ScrollableApp {
 			while(resultset.previous()) {
 				System.out.println(resultset.getInt(1)+"\t"+resultset.getString(2)+"\t" +resultset.getInt(3)+ "\t" +resultset.getString(4));
 			}
+			
+			
+			System.out.println();
+			resultset.first();//move the coursor tot he first record ..
+			System.out.println(resultset.getInt(1)+"\t"+resultset.getString(2)+"\t" +resultset.getInt(3)+ "\t" +resultset.getString(4));
+			
+			
+			resultset.last(); //move te cursor to the last record ////
+			System.out.println(resultset.getInt(1)+"\t"+resultset.getString(2)+"\t" +resultset.getInt(3)+ "\t" +resultset.getString(4));
+			
+			resultset.absolute(7); // move the cursor to the forward direction....
+			System.out.println(resultset.getInt(1)+"\t"+resultset.getString(2)+"\t" +resultset.getInt(3)+ "\t" +resultset.getString(4));
+			
+			resultset.relative(4); //move the curson in the forward direction W.R.T to the current cursor..
+			System.out.println(resultset.getInt(1)+"\t"+resultset.getString(2)+"\t" +resultset.getInt(3)+ "\t" +resultset.getString(4));
+			
+			
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
