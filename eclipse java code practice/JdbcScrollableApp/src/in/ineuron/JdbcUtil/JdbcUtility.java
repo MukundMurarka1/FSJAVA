@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 public class JdbcUtility {
@@ -30,7 +32,23 @@ public class JdbcUtility {
 		properties.load(fis);
 		
 		Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("user"), properties.getProperty("password"));
-		return null;
+		System.out.println("Connection established succesfully ....");
+		return connection;
+	}
+	
+	public static void getCloseconnection(Connection connection, Statement stmt, ResultSet resultset) throws SQLException {
+		if(connection != null) {
+			connection.close();
+		}
+		if(stmt != null) {
+			stmt.close();
+		}
+		if(resultset != null) {
+			resultset.close();
+		}
+		
+		
+		
 	}
 
 }
