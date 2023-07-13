@@ -2,12 +2,37 @@ package in.ineuron.controller;
 
 import java.util.Scanner;
 
+import in.ineuron.dto.Student;
 import in.ineuron.servicefactory.StudentServiceFactory;
 import in.inuron.service.IStudentService;
 
 public class TestApp {
 
 	public static void main(String[] args) {
+		selectOperation();
+	}
+	public static void selectOperation() {
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the id of student which you want to fwtch the details ::");
+		int sid = scan.nextInt();
+		
+		IStudentService studentservice = StudentServiceFactory.getStudentService();
+		Student std = studentservice.selectData(sid);
+		if(std != null) {
+			//System.out.println(std);
+			System.out.println("SID\tName\tAge\tAddress");
+			System.out.println(std.getSid()+"\t"+std.getSname()+"\t" +std.getSage()+"\t"+std.getSaddress());
+			
+		}else {
+			System.out.println("Record not found for the given id :: "+sid);
+		}
+		
+	}
+		
+		
+		
+	public static void insertionOperation() {
 		
 		
 		IStudentService studentService  =StudentServiceFactory.getStudentService();

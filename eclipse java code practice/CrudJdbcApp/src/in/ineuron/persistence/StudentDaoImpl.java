@@ -3,6 +3,7 @@ package in.ineuron.persistence;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import in.ineuron.dto.Student;
@@ -11,6 +12,7 @@ import in.ineuron.util.JdbcUtil;
 public class StudentDaoImpl implements IstudentDao {
 	Connection connection = null;
 	PreparedStatement pstmt =  null;
+	ResultSet resultset = null;
 	
 
 	@Override
@@ -46,7 +48,40 @@ public class StudentDaoImpl implements IstudentDao {
 
 	@Override
 	public Student selectData(Integer sid) {
-	
+		Student student = null;
+		String selectQuery = "select id, name,age,address from studentinfo where id=?";
+		
+		try {
+			connection = JdbcUtil.getJdbcConnection();
+			if(connection != null) {
+				pstmt = connection.prepareStatement(selectQuery);
+			}
+			if(pstmt != null) {
+				pstmt.setInt(1, sid);
+				
+			}
+			if(pstmt != null) {
+				resultset = pstmt.executeQuery();
+			}
+			if(resultset != null) {
+				if(resultset.next()) {
+					student = new Student();
+					
+					student.setSid(resultset.getInt(1));
+					student.setSname(resultset.getString(2));
+					student.setSage(resultset.getInt(3));
+					student.setSaddress(resultset.getString(4));
+					
+					return student;
+				}
+				
+			}
+			
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		return null;
 	}
 
