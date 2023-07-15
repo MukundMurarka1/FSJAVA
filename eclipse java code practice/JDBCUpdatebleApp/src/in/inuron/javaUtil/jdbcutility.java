@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 public class jdbcutility {
@@ -22,7 +24,7 @@ public class jdbcutility {
 		}
 		
 	}
-	private static Connection getJdbcConnection() throws IOException, SQLException {
+	public  static Connection getJdbcConnection() throws IOException, SQLException {
 		
 		FileInputStream fis = new FileInputStream("D:\\FSJAVA\\ecliplise code for practice\\JDBCUpdatebleApp\\src\\in\\ineuron\\application\\application.properties");
 		Properties properties = new Properties();
@@ -30,7 +32,22 @@ public class jdbcutility {
 		
 		Connection connection = DriverManager.getConnection(properties.getProperty("url"),properties.getProperty("user"), properties.getProperty("password"));
 		System.out.println("Connection established successfully .....");
-		return null;
+		return connection;
+	}
+	
+	public static void closeConnection(Connection connection, Statement stmt, ResultSet resultset) throws SQLException {
+		if(connection != null) {
+			connection.close();
+		}
+		
+		if(stmt !=null) {
+			stmt.close();	
+		}
+		
+		if(resultset != null) {
+			resultset.close();
+		}
+		
 	}
 
 }
