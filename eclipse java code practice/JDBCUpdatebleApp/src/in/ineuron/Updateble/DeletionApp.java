@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import in.inuron.javaUtil.jdbcutility;
 
-public class updatebleApp {
+public class DeletionApp {
 
 	public static void main(String[] args) {
 		
@@ -32,16 +32,18 @@ public class updatebleApp {
 				
 		}
 		if(resultset != null) {
-			System.out.println("Record before doing update operation ");
+			System.out.println("Record before doing Delete operation ");
 			System.out.println("id\tName\tAge\tAddress");
 			while (resultset.next()) {
 				System.out.println(resultset.getInt(1)+" \t "+resultset.getString(2)+"\t"+ resultset.getInt(3)+"\t"+resultset.getString(4));
 			}
 			
 			System.out.println();
-			System.out.println("Application is in pausing State :: please press enter key for upadte the record ::::");
-			System.in.read();
-			System.out.println("Record after updation ::: ");
+			resultset.last(); // take the cursor to the last row 
+			resultset.deleteRow(); //delete the row on which the cursor lies currently
+			resultset.beforeFirst();// take the cursor before last row ....
+			
+			System.out.println("Record after deletion  ::: ");
 			
 			resultset.beforeFirst();//take the cursor before first record 
 			System.out.println("id\tName\tAge\tAddress");
