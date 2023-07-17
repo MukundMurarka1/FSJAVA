@@ -39,9 +39,13 @@ public class InsertApp {
 			}
 			
 			//performing delete operation using resultset.
-			System.out.println();
-			resultset.last(); // take the cursor to the last row 
-			resultset.insertRow();; //delete the row on which the cursor lies currently
+			resultset.moveToInsertRow();
+			resultset.updateInt(1, 13);
+			resultset.updateString(2, "Khushi");
+			resultset.updateInt(3, 25);
+			resultset.updateString(4, "DBG");
+			resultset.insertRow();
+			
 			resultset.beforeFirst();// take the cursor before last row ....
 			
 			System.out.println("Record after insertion  ::: ");
