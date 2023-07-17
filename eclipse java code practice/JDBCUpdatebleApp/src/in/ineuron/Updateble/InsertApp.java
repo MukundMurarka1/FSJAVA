@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 import in.inuron.javaUtil.jdbcutility;
 
-public class DeletionApp {
+public class InsertApp {
 
 	public static void main(String[] args) {
 		
@@ -32,7 +32,7 @@ public class DeletionApp {
 				
 		}
 		if(resultset != null) {
-			System.out.println("Record before doing Delete operation ");
+			System.out.println("Record before doing Insert operation ");
 			System.out.println("id\tName\tAge\tAddress");
 			while (resultset.next()) {
 				System.out.println(resultset.getInt(1)+" \t "+resultset.getString(2)+"\t"+ resultset.getInt(3)+"\t"+resultset.getString(4));
@@ -41,10 +41,10 @@ public class DeletionApp {
 			//performing delete operation using resultset.
 			System.out.println();
 			resultset.last(); // take the cursor to the last row 
-			resultset.deleteRow(); //delete the row on which the cursor lies currently
+			resultset.insertRow();; //delete the row on which the cursor lies currently
 			resultset.beforeFirst();// take the cursor before last row ....
 			
-			System.out.println("Record after deletion  ::: ");
+			System.out.println("Record after insertion  ::: ");
 			
 			resultset.beforeFirst();//take the cursor before first record 
 			System.out.println("id\tName\tAge\tAddress");
