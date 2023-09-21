@@ -9,7 +9,55 @@ import in.inuron.service.IStudentService;
 public class TestApp {
 
 	public static void main(String[] args) {
-		deletRecord();
+		
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the id of student which you want to update the result .. ");
+		int sid = scan.nextInt();
+		
+		IStudentService studentservice = StudentServiceFactory.getStudentService();
+		Student student = studentservice.selectData(sid);
+		
+		if(student!=null) {
+			Student newStudent = new Student();
+			System.out.println("Student id is :: "+student.getSid());
+			System.out.print("Student old name is :: "+student.getSname()+ " Enter newName :: ");
+			String newName = scan.next();
+			if(newName.equals("") || newName == "") {
+				newStudent.setSname(student.getSname());
+				
+			}else {
+				newStudent.setSname(newName);
+			}
+			System.out.print("Stuent oldAge is :: "+student.getSage()+ " Enter newAge :: ");
+			String newAge = scan.next();
+			if(newAge.equals("") || newAge == "") {
+				newStudent.setSage(student.getSage());
+			}else {
+				newStudent.setSage(Integer.parseInt(newAge));
+			}
+			System.out.print("Student oldAddress is :: "+student.getSaddress()+" Enter the newAddress :: ");
+			String newAddress = scan.next();
+			if(newAddress.equals("") || newAddress == "") {
+				newStudent.setSaddress(student.getSaddress());
+				
+			}else {
+				newStudent.setSaddress(newAddress);
+			}
+			
+			String status = studentservice.updateStudent(newStudent);
+			if(status.equalsIgnoreCase("Success")) {
+				System.out.println("Record updation successfully");
+			}else {
+				System.out.println("Record updation failed ");
+			}
+			
+			
+			
+		}else {
+			System.out.println("Record not found for the given student ID :: "+sid );
+		}
+		
 		
 	}
 	public static void deletRecord() {
