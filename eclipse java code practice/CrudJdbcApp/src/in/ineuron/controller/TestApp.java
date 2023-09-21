@@ -9,7 +9,24 @@ import in.inuron.service.IStudentService;
 public class TestApp {
 
 	public static void main(String[] args) {
-		selectOperation();
+		deletRecord();
+		
+	}
+	public static void deletRecord() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the id of student which you want to delete the record :: ");
+		int sid = scan.nextInt();
+		IStudentService studentservice = StudentServiceFactory.getStudentService();
+		String msg = studentservice.deleteStudent(sid);
+		if(msg.equalsIgnoreCase("success")) {
+			System.out.println("Record deleted Successfully ::");
+		}else if(msg.equalsIgnoreCase("not found ")) {
+			System.out.println("Record not found for the given student id :: "+sid );
+		}else {
+			System.out.println("record deleteion failed some error occured ::  ");
+		}
+		
+		scan.close();
 	}
 	public static void selectOperation() {
 		

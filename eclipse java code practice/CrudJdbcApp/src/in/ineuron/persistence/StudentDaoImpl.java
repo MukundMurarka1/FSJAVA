@@ -87,14 +87,71 @@ public class StudentDaoImpl implements IstudentDao {
 
 	@Override
 	public String updateStudent(String sname, Integer sage, String saddress) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		String deletequery = "delete from studentinfo where id = ?";
+		try {
+			connection = JdbcUtil.getJdbcConnection();
+			if(connection != null) {
+				pstmt = connection.prepareStatement(deletequery);
+				
+			}
+			if(pstmt != null) {
+				
+				pstmt.setInt(1, sid);
+				
+				
+				int rowaffected = pstmt.executeUpdate();
+				
+				if(rowaffected == 1 ) {
+					return "success";
+				}else {
+					return "not found ";
+				
+				}
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "failure";
+		}
+		
+		
+		return "failure";
+	}		
+
+	
 
 	@Override
 	public String deleteStudent(Integer sid) {
-		// TODO Auto-generated method stub
-		return null;
+		String deletequery = "delete from studentinfo where id = ?";
+		try {
+			connection = JdbcUtil.getJdbcConnection();
+			if(connection != null) {
+				pstmt = connection.prepareStatement(deletequery);
+				
+			}
+			if(pstmt != null) {
+				
+				pstmt.setInt(1, sid);
+				
+				
+				int rowaffected = pstmt.executeUpdate();
+				
+				if(rowaffected == 1 ) {
+					return "success";
+				}else {
+					return "not found ";
+				
+				}
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "failure";
+		}
+		
+		
+		return "failure";
+	}		
 	}
 
-}
+
