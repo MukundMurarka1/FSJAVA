@@ -111,7 +111,7 @@ public class StudentDaoImpl implements IstudentDao {
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "failure";
+			
 		}
 		
 		

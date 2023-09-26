@@ -9,6 +9,8 @@ public class Student implements Serializable {
 	private String sname;
 	private Integer sage;
 	private String saddress;
+	
+	
 	public Integer getSid() {
 		return sid;
 	}
